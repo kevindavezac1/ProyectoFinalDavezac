@@ -16,18 +16,19 @@ document.getElementById('mostrarMenu').addEventListener('click', mostrarMenu);
 document.getElementById('finalizarPedido').addEventListener('click', finalizarPedido);
 document.getElementById('reiniciarPedido').addEventListener('click', reiniciarPedido);
 document.getElementById('agradecimiento').addEventListener('click', () => {
-    alert('¡Muchas gracias, muy rico todo!');
+    alert('¡Gracias a usted!');
     reiniciarPedido();
 });
 
 function mostrarMenu() {
-    const menuDiv = document.getElementById('menu');
-    menuDiv.innerHTML = `
-        <h2>Menú</h2>
-        ${Object.keys(menuItems).map(key => `
-            <p>${menuItems[key].nombre} --> $${menuItems[key].precio} <button onclick="agregarPedido(${key})">Seleccionar</button></p>
-        `).join('')}
-    `;
+    const menuDiv = document.querySelector('.menu-container');
+    menuDiv.innerHTML = Object.keys(menuItems).map(key => `
+        <div class="card">
+            <h3>${menuItems[key].nombre}</h3>
+            <p>Precio: $${menuItems[key].precio}</p>
+            <button onclick="agregarPedido(${key})">Seleccionar</button>
+        </div>
+    `).join('');
 }
 
 function agregarPedido(seleccion) {
@@ -77,5 +78,5 @@ function reiniciarPedido() {
     mostrarPedidoActual();
     document.getElementById('finalizarPedido').disabled = true;
     document.getElementById('resultado').innerHTML = '';
-    document.getElementById('menu').innerHTML = '';
+    document.querySelector('.menu-container').innerHTML = ''; 
 }
