@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     const menuItems = {};
 
-    // Cargar datos del menú desde un JSON local
+
     fetch('./json/menu.json')
         .then(response => {
             if (!response.ok) {
@@ -99,6 +99,5 @@ $(document).ready(function() {
         localStorage.setItem('total', JSON.stringify(total));
     }
 
-    // Inicializar la vista con los datos del localStorage
     mostrarPedidoActual();
 });
