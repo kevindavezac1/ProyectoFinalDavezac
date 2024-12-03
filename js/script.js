@@ -4,8 +4,7 @@ $(document).ready(function() {
 
     const menuItems = {};
 
-    // Cargar datos del menú desde un JSON local
-    fetch('./data/menu.json')
+    fetch('./json/menu.json')
         .then(response => response.json())
         .then(data => {
             Object.assign(menuItems, data);
@@ -17,8 +16,12 @@ $(document).ready(function() {
     $('#finalizarPedido').click(finalizarPedido);
     $('#reiniciarPedido').click(reiniciarPedido);
     $('#agradecimiento').click(() => {
-        alert('¡Gracias a usted!');
-        reiniciarPedido();
+        if (pedidos.length > 0) {
+            alert('¡Gracias a usted!');
+            reiniciarPedido();
+        } else {
+            alert('Gracias, pero aún no ha probado nada.');
+        }
     });
 
     function mostrarMenu() {
@@ -90,6 +93,6 @@ $(document).ready(function() {
         localStorage.setItem('total', JSON.stringify(total));
     }
 
-    // Inicializar la vista con los datos del localStorage
+
     mostrarPedidoActual();
 });
