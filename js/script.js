@@ -4,8 +4,14 @@ $(document).ready(function() {
 
     const menuItems = {};
 
+    // Cargar datos del menú desde un JSON local
     fetch('./json/menu.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             Object.assign(menuItems, data);
             mostrarMenu();
@@ -93,6 +99,6 @@ $(document).ready(function() {
         localStorage.setItem('total', JSON.stringify(total));
     }
 
-
+    // Inicializar la vista con los datos del localStorage
     mostrarPedidoActual();
 });
