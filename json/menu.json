@@ -1,0 +1,10 @@
+{
+    "1": { "nombre": "Bife de chorizo", "precio": 12000 },
+    "2": { "nombre": "Rabas", "precio": 9000 },
+    "3": { "nombre": "Mollejas", "precio": 8000 },
+    "4": { "nombre": "Entrañas", "precio": 13000 },
+    "5": { "nombre": "Matambre de cerdo", "precio": 11000 },
+    "6": { "nombre": "Agua", "precio": 2000 },
+    "7": { "nombre": "Cerveza", "precio": 3000 },
+    "8": { "nombre": "Vino", "precio": 4000 }
+}
